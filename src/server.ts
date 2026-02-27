@@ -13,6 +13,14 @@ import { registerMailReply } from "./tools/mail-reply.js";
 import { registerMailForward } from "./tools/mail-forward.js";
 import { registerMailAttach } from "./tools/mail-attach.js";
 import { registerMailAttachmentList } from "./tools/mail-attachment-list.js";
+import { registerCalendarList } from "./tools/calendar-list.js";
+import { registerCalendarRead } from "./tools/calendar-read.js";
+import { registerCalendarCreate } from "./tools/calendar-create.js";
+import { registerCalendarUpdate } from "./tools/calendar-update.js";
+import { registerCalendarDelete } from "./tools/calendar-delete.js";
+import { registerMailTemplateList } from "./tools/mail-template-list.js";
+import { registerMailTemplateApply } from "./tools/mail-template-apply.js";
+import { registerCrmLogActivity } from "./tools/crm-log-activity.js";
 
 export async function createServer(): Promise<McpServer> {
   const config: AppConfig = loadConfig();
@@ -34,10 +42,10 @@ export async function createServer(): Promise<McpServer> {
   // Create MCP server
   const server = new McpServer({
     name: "mcp-ms365-mail",
-    version: "0.1.0",
+    version: "0.2.0",
   });
 
-  // Register all tools
+  // Register mail tools (10)
   registerMailList(server, graph, audit);
   registerMailRead(server, graph, audit);
   registerMailSearch(server, graph, audit);
@@ -48,6 +56,20 @@ export async function createServer(): Promise<McpServer> {
   registerMailForward(server, graph, audit, config);
   registerMailAttach(server, graph, audit);
   registerMailAttachmentList(server, graph, audit);
+
+  // Register calendar tools (5)
+  registerCalendarList(server, graph, audit);
+  registerCalendarRead(server, graph, audit);
+  registerCalendarCreate(server, graph, audit);
+  registerCalendarUpdate(server, graph, audit);
+  registerCalendarDelete(server, graph, audit);
+
+  // Register template tools (2)
+  registerMailTemplateList(server);
+  registerMailTemplateApply(server, graph, audit);
+
+  // Register CRM bridge (1)
+  registerCrmLogActivity(server, audit);
 
   return server;
 }

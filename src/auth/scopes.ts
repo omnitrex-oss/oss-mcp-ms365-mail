@@ -1,5 +1,5 @@
 /**
- * Microsoft Graph API permission scopes for mail operations.
+ * Microsoft Graph API permission scopes for mail and calendar operations.
  * These are delegated permissions (user-consented, not app-level).
  */
 
@@ -10,6 +10,8 @@ export const GRAPH_SCOPES = {
   MAIL_SEND: "Mail.Send",
   /** Read basic user profile (needed for /me endpoint) */
   USER_READ: "User.Read",
+  /** Read and write access to user's calendar */
+  CALENDARS_READ_WRITE: "Calendars.ReadWrite",
 } as const;
 
 /** All scopes required for this MCP server */
@@ -17,4 +19,5 @@ export const ALL_SCOPES = [
   GRAPH_SCOPES.MAIL_READ_WRITE,
   GRAPH_SCOPES.MAIL_SEND,
   GRAPH_SCOPES.USER_READ,
+  GRAPH_SCOPES.CALENDARS_READ_WRITE,
 ];
