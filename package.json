@@ -1,5 +1,5 @@
 {
-  "name": "@omnitrex/mcp-ms365-mail",
+  "name": "oss-mcp-ms365-mail",
   "version": "0.1.0",
   "description": "MCP server for Microsoft 365 Mail — draft, send, and manage Outlook email from Claude Code",
   "license": "MIT",

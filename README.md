@@ -1,4 +1,4 @@
-# @omnitrex/mcp-ms365-mail
+# oss-mcp-ms365-mail
 
 MCP server for Microsoft 365 Mail — draft, send, and manage Outlook email directly from Claude Code.
 
@@ -80,7 +80,7 @@ Your app should now have:
 ### 1. Build from source
 
 ```bash
-git clone <repo-url> && cd mcp-outlook
+git clone https://github.com/omnitrex-oss/oss-mcp-ms365-mail.git && cd oss-mcp-ms365-mail
 npm install
 npm run build
 ```

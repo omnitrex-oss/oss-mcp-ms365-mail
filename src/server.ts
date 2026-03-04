@@ -40,7 +40,7 @@ export async function createServer(): Promise<McpServer> {
 
   // Create MCP server
   const server = new McpServer({
-    name: "mcp-ms365-mail",
+    name: "oss-mcp-ms365-mail",
     version: "0.2.0",
   });
 
